@@ -1,36 +1,56 @@
-# How to compile 
-Before you compile, please make sure these packages are installed:
-```bashl
-sudo apt-get install pv openssl libssl-dev bison flex git make u-boot-tools libmpc-dev libgmp-dev python3-pip mtd-utils libncurses* mtools
-pip install pycryptodomex pyelftools Crypto 
-```
-Fetch the source code:
-```bash
-git clone https://github.com/sunplus-plus1/Q654.git
-cd Q654
-git submodule update --init --recursive
-git submodule foreach git checkout master
-```
-Configure the build:
-```bash
-make config
-```
->Following the selection of script options, If you want to change the kernel configuration, run:
-```
-make kconfig
-```
->after make config has completed. 
->
->**Note 1:** Please don't enter the `linux/kernel` folder and run "`make menuconfig`"
->
->**Note 2:** For USB gadget support, please refer to [here](https://github.com/sunplus-plus1/usb_gadget)
 
-Build the kernel:
-```
-make
-```
-If your local LANG is not english, please run
-```
-LANG=c make
-```
-When the build completes, you will find the image file in the `out` folder.
+# How to Compile  
+
+## Prerequisites  
+Before compiling, ensure the following packages are installed:  
+```bash  
+sudo apt-get install pv openssl libssl-dev bison flex git make u-boot-tools libmpc-dev libgmp-dev python3-pip mtd-utils libncurses* mtools  
+pip install pycryptodomex pyelftools Crypto  
+```  
+
+## Download the Source Code  
+Clone the repository and initialize submodules:  
+```bash  
+git clone https://github.com/sunplus-plus1/Q654.git  
+cd Q654  
+git submodule update --init --recursive  
+git submodule foreach git checkout master  
+```  
+
+## Configure the Build  
+Run the following command to configure the build:  
+```bash  
+make config  
+```  
+**Note:** After completing `make config`, if you want to adjust the kernel configuration, use:  
+```bash  
+make kconfig  
+```  
+Do **not** manually enter the `linux/kernel` folder to run `make menuconfig`.  
+
+## Build the Project  
+To build all components, execute:  
+```bash  
+make  
+```  
+If your local `LANG` environment variable is not set to English, use:  
+```bash  
+LANG=C make  
+```  
+
+When the build completes, the output image file will be located in the `out` folder.  
+
+## Additional Resources  
+
+### Downloading and Compiling Code  
+Refer to the detailed guide:  
+[Downloading and Compiling Code](https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774/Downloading+and+Compiling+Code)  
+
+### Release Details  
+Find information about release versions:  
+[Releases](https://sunplus.atlassian.net/wiki/spaces/C3/pages/2263875587/Releases)  
+
+### SP7350 References  
+- [SP7350 Hardware](https://sunplus.atlassian.net/wiki/spaces/C3/pages/2037121029/SP7350+Hardware)  
+- [SP7350 Software](https://sunplus.atlassian.net/wiki/spaces/C3/pages/2003271700/SP7350+Software)  
+- [SP7350 Application Notes](https://sunplus.atlassian.net/wiki/spaces/C3/pages/1984233474/SP7350+Application+Notes)  
